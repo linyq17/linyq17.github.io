@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Parrot Captions Teach CLIP to Spot Text">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parrot Captions</title>
+
+  <!-- Bootstrap -->
+  <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./assets/parrot.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="margin-bottom: 0"><strong>Parrot Captions Teach CLIP to Spot Text</strong></h1>
+
+          <div class="column is-full_width">
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://haofeixu.github.io/">Yiqi Lin</a><sup>1*</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://conghui.github.io/">Conghui He</a><sup>1*&dagger;</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://fingerrec.github.io/">Alex Jinpeng Wang</a><sup>2*</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://wangbindl.github.io/">Bin Wang</a><sup>1*</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              <a href="https://liweijia.github.io/">Weijia Li</a><sup>3</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=h1-3lSoAAAAJ&hl=zh-CN">Mike Zheng Shou</a><sup>2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Shanghai AI Laboratory</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>National University of Singapore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>Sun Yat-Sen University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>*</sup>Core Contribution</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>&dagger;</sup>Corresponding Author</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/"
+                   class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Highlights -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px">TL;DR</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li style="font-size:16px">Captions in LAION-2B have a significant bias towards describing visual text content embedded in the images.</li>
+            <li style="font-size:16px">Released CLIP models have strong text spotting bias almost in every style of web images, resulting in the CLIP-filtering datasets inherently biased towards visual text dominant data.</li>
+            <li style="font-size:16px">CLIP models easily learn text spotting capacity from parrot captions while failing to connect the vision-language semantics, just like a text spotting parrot.</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3  has-text-centered" style="margin-top: -20px">Overview</h2>
+
+        <img src="./assets/teaser.png" class="center">
+
+        <h2 class="subtitle" style="margin-top: 15px; font-size: 17px">
+          In LAION-2B, image-text pairs with the Top-5% highest similarity score are most dominant by visual text!
+          These samples have dense concurrent text appearing in captions and images (text form in pixels).
+          We refer to their captions as <b>Parrot Captions</b> as they raise a question: <b> Dose CLIP Simply Parroting Text in Images for Vision-Language Alignment? </b>
+          The concurrent text is spotted by the OCR model and highlighted with color in image-text pairs.
+        </h2>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3  has-text-centered" style="margin-top: -20px"> Profiling LAION-2B Data </h2>
+
+        <img src="./assets/cluster_summary.jpg" class="center">
+        <img src="./assets/distribution.png" class="center">
+        <h2 class="subtitle" style="margin-top: 15px; font-size: 17px">
+          We first do K-Means on the LAION-2B dataset and then use OCR model scan the whole dataset.
+          Surprisingly, we found that 50% of images contain embedded text content. 
+          In the clusters with high text image ratio, the top CLIP score samples contain various text sources, such as posters, book covers, advertisements, TV show screenshots, and even PowerPoint slides.
+        </h2>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Inspecting Pre-Trained CLIP Models</h2>
+
+        <img src="./assets/score_distribution.png" class="center">
+
+        <h2 class="subtitle" style="margin-top: 15px; font-size: 17px">
+          To answer better why LAION data contains such a high proportion of parrot captions, 
+          we inspect the released CLIP models by ablating the embedded text using text inpainting.
+          The CLIP scores significantly drop once we remove the text from the images compared to 
+          its random inpainting baseline. 
+          It indicates that the parrot captions correlate highly with the CLIP score measurement.
+        </h2>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px">Training CLIP on Emb. Text Curated Data</h2>
+
+        <img src="./assets/relative_exp_group.png" class="center">
+
+        <h2 class="subtitle" style="margin-top: 15px; font-size: 17px">
+          We dive deeper into the parrot captions by training CLIP models on LAION-2B subsets selected by 
+          different embedded-text-oriented criteria under the same setting.
+          Results show that we can easily train a CLIP model with a strong text-spotting bias using data biasing to parrot captions.
+        </h2>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px">What's Next</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li style="font-size:16px">More Datasets Profiling. e.g. CC12M.</li>
+            <li style="font-size:16px">A Less Biased Subset and CLIP Model.</li>
+          </ul>
+        </h2>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- <section class="section" id="Acknowledgements">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3">Acknowledgements</h2>
+  </div>
+</section> -->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title" style="margin-top: -60px">BibTeX</h2>
+    <pre><code>@article{
+    }</code></pre>
+</code></pre>
+  </div>
+</section>
+
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+  <tr>
+    <td>
+      <br>
+      <p align="center">
+        <font size="2">
+          <a href="https://github.com/nerfies/nerfies.github.io">
+            <font size="2" color="lightgray">awesome webpage template</font>
+          </a>
+          <br>
+        </font>
+      </p>
+      <br>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
