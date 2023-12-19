@@ -56,6 +56,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title" style="margin-bottom: 0"><strong>Parrot Captions Teach CLIP to Spot Text</strong></h1>
+          <h1 class="title is-2" style="margin-bottom: 0;color: red"><strong>CLIP Score is Innately Flawed !!!</strong></h1>
 
           <div class="column is-full_width">
           </div>
@@ -130,6 +131,7 @@
             <li style="font-size:16px">Captions in LAION-2B have a significant bias towards describing visual text content embedded in the images.</li>
             <li style="font-size:16px">Released CLIP models have strong text spotting bias almost in every style of web images, resulting in the CLIP-filtering datasets inherently biased towards visual text dominant data.</li>
             <li style="font-size:16px">CLIP models easily learn text spotting capacity from parrot captions while failing to connect the vision-language semantics, just like a text spotting parrot.</li>
+            <li style="font-size:16px">We provide a alternative solution by training a less biased filtered LAION-2B 100M subset and pre-trained CLIP models.</li>
           </ul>
 
         </div>
@@ -234,14 +236,34 @@
 
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered" style="margin-top: -20px">What's Next</h2>
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px"> Profiling More Datasets </h2>
         <div class="content has-text-justified">
           <ul>
-            <li style="font-size:16px">More Datasets Profiling. e.g. CC12M.</li>
-            <li style="font-size:16px">A Less Biased Subset and CLIP Model.</li>
+            <li style="font-size:16px">MMC4: Similiar to LAION-2B.</li>
+            <li style="font-size:16px">CC12M: Less Bias to Text than LAION-2B.</li>
+            <li style="font-size:16px">More details are presented in <a href="https://">our Paper</a>.</li>
+
           </ul>
         </h2>
+      </div>
+    </div>
 
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px">A Simple Fix</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li style="font-size:16px">We construct a less biased 100M subset from LAION-2B subset with Empty OCR results, CLIP score > 0.3 and Aesthetics score > 4.5.</li>
+            <li style="font-size:16px">We trained a 100M-scale CLIP Model as a alternative solution to existing CLIP socre flitering pipeline.</li>
+            <li style="font-size:16px">Dataset and Models see <a href="https://">our Github</a>.</li>
+          </ul>
+        </h2>
       </div>
     </div>
 
