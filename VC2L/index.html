@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="VC2L">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VC2L</title>
+
+  <!-- Bootstrap -->
+  <link href="static/css/bootstrap-4.4.1.css" rel="stylesheet">
+  
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./assets/parrot.jpg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+    /* center any image with class="center" */
+    img.center { 
+      display: block; 
+      margin-left: auto; 
+      margin-right: auto; 
+      max-width: 100%; 
+      height: auto; 
+    }
+    /* utility to force normal weight when needed */
+    .no-bold { font-weight: 400 !important; }
+  </style>
+</head>
+<body>
+
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="margin-bottom: 0"><strong>Exploring a Unified Vision-Centric Contrastive Alternatives on Multi-Modal Web Documents</strong></h1>
+          <div class="column is-full_width">
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Yiqi Lin</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              Alex Jinpeng Wang</a><sup>2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              Linjie Li</a><sup>3</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              Zhengyuan Yang</a><sup>3</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block">
+              Mike Zheng Shou</a><sup>1</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Show Lab, National University of Singapore</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>2</sup>Central South University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+            <span class="author-block"><sup>3</sup>Microsoft</span>&nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Github</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://openxlab.org.cn/datasets/opendatalab-linyiqi/LAION-text-debiased-100M"
+                    class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                    <img src="assets/datalab_logo.jpeg">
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/linyq/laion_text_debiased_100M"
+                    class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <img src="assets/hf.jpeg">
+                    </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/linyq/CLIP-Parrot-Bias"
+                    class="external-link button is-normal is-rounded is-dark disabled">
+                  <span class="icon">
+                      <img src="assets/hf.jpeg">
+                    </span>
+                  <span>Demo</span>
+                  </a>
+              </span> -->
+            </div>
+          </div>
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Highlights -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="margin-top: -30px;">Abstract</h2>
+
+        <div class="content has-text-justified">
+          <h3 class="subtitle no-bold" style="margin-top: 15px; font-size: 17px;">
+            Contrastive vision-language models such as CLIP have demonstrated strong performance across a wide range of multimodal tasks by learning from aligned image-text pairs. However, their ability to handle complex, real-world web documents remains limited, particularly in scenarios where text and images are interleaved, loosely aligned, or embedded in visual form. To address these challenges, we propose Vision-Centric Contrastive Learning (\Mname), a unified framework that models text, images, and their combinations using a single vision transformer. VC2L operates entirely in pixel space by rendering all inputs, whether textual, visual, or combined, as images, thus eliminating the need for OCR, text tokenization, or modality fusion strategy. To capture complex cross-modal relationships in multimodal web documents, \Mname employs a snippet-level contrastive learning objective that aligns consecutive multimodal segments, leveraging the inherent coherence of documents without requiring explicitly paired image-text data. To assess the effectiveness of this approach, we introduce three retrieval benchmarks, AnyCIR, SeqCIR, and CSR, designed to evaluate cross-modal retrieval, fine-grained sequential understanding, and generalization to unseen data, respectively. Empirical results show that VC2L achieves competitive or superior performance compared to CLIP-style models on both the proposed benchmarks and established datasets such as M-BEIR and MTEB. These findings underscore the potential of multimodal web data as a valuable training resource for contrastive learning and illustrate the scalability of a unified, vision-centric approach for multimodal representation learning.
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px;">Methodology</h2>
+
+        <img src="./assets/intro.png" class="center" alt="Methodology overview of VC2L" loading="lazy" />
+
+        <h2 class="subtitle center" style="margin-top: 15px; font-size: 17px;">
+          VC2L explore an alternative vision-centric paradigm for unified vision-language modeling on interleaved web data. A single vision transformer is used to process any image-text modality from pixels and thereby natively learn a unified representation.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px;">Zero Shot Information Retrieval Results</h2>
+
+        <div>
+          <img src="./assets/exp1.png" class="center" alt="Zero-shot IR results figure 1" loading="lazy" />
+        </div>
+        <div>
+          <img src="./assets/exp2.png" class="center" alt="Zero-shot IR results figure 2" loading="lazy" />
+        </div>
+
+        <h2 class="subtitle" style="margin-top: 15px; font-size: 17px;"></h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered" style="margin-top: -20px;">Visualization</h2>
+
+        <img src="./assets/vis.png" class="center" alt="Visualization of VC2L embeddings and retrievals" loading="lazy" />
+
+        <h2 class="subtitle" style="margin-top: 15px; font-size: 17px;"></h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
+  <tr>
+    <td>
+      <br>
+      <p align="center">
+        <font size="2">
+          <a href="https://github.com/nerfies/nerfies.github.io">
+            <font size="2" color="lightgray">awesome webpage template</font>
+          </a>
+          <br>
+        </font>
+      </p>
+      <br>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
