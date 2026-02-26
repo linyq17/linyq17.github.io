@@ -342,6 +342,14 @@
   margin: 16px 0;
 }
 
+.results-table-wrapper.wide {
+  width: 60vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 16px 0;
+}
+
 .results-table-wrapper table {
   width: 100%;
   border-collapse: collapse;

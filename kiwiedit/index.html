@@ -584,55 +584,145 @@
 
         <h2>Automated Evaluation</h2>
         <p class="text">
-            We evaluate on the standard VEdit-Bench benchmark across three metrics: instruction fidelity (IF), temporal consistency (TC), and frame quality (FQ). KiwiEdit achieves the best overall performance.
+            We evaluate on OpenVE-Bench, assessed by Gemini-2.5-Pro, across five editing categories: Global Style, Background Change, Local Change, Local Remove, and Local Add. KiwiEdit (Stage-3 Instruct-Reference) achieves the best overall score among open-source methods.
         </p>
 
-        <div class="results-table-wrapper">
+        <div class="results-table-wrapper wide">
             <table>
                 <thead>
                     <tr>
                         <th>Method</th>
-                        <th>IF &uarr;</th>
-                        <th>TC &uarr;</th>
-                        <th>FQ &uarr;</th>
+                        <th>#Params.</th>
+                        <th>#Reso.</th>
                         <th>Overall &uarr;</th>
+                        <th>Global Style &uarr;</th>
+                        <th>Background Change &uarr;</th>
+                        <th>Local Change &uarr;</th>
+                        <th>Local Remove &uarr;</th>
+                        <th>Local Add &uarr;</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>TokenFlow</td>
-                        <td>72.3</td>
-                        <td>89.1</td>
-                        <td>81.2</td>
-                        <td>80.9</td>
+                        <td>Runway Aleph</td>
+                        <td>-</td>
+                        <td>1280&times;720</td>
+                        <td class="best">3.49</td>
+                        <td class="second-best">3.72</td>
+                        <td>2.62</td>
+                        <td class="best">4.18</td>
+                        <td class="best">4.16</td>
+                        <td class="best">2.78</td>
                     </tr>
                     <tr>
-                        <td>InsV2V</td>
-                        <td>78.5</td>
-                        <td>86.7</td>
-                        <td>83.4</td>
-                        <td>82.9</td>
+                        <td>VACE</td>
+                        <td>14B</td>
+                        <td>1280&times;720</td>
+                        <td>1.57</td>
+                        <td>1.49</td>
+                        <td>1.55</td>
+                        <td>2.07</td>
+                        <td>1.46</td>
+                        <td>1.26</td>
                     </tr>
                     <tr>
-                        <td>AnyV2V</td>
-                        <td>76.1</td>
-                        <td>90.3</td>
-                        <td>82.8</td>
-                        <td>83.1</td>
+                        <td>OmniVideo</td>
+                        <td>1.3B</td>
+                        <td>640&times;352</td>
+                        <td>1.19</td>
+                        <td>1.11</td>
+                        <td>1.18</td>
+                        <td>1.14</td>
+                        <td>1.14</td>
+                        <td>1.36</td>
                     </tr>
                     <tr>
-                        <td>EasyV2V</td>
-                        <td class="second-best">81.2</td>
-                        <td class="second-best">91.5</td>
-                        <td class="second-best">85.6</td>
-                        <td class="second-best">86.1</td>
+                        <td>InsViE</td>
+                        <td>2B</td>
+                        <td>720&times;480</td>
+                        <td>1.45</td>
+                        <td>2.20</td>
+                        <td>1.06</td>
+                        <td>1.48</td>
+                        <td>1.36</td>
+                        <td>1.17</td>
                     </tr>
                     <tr>
-                        <td><b>KiwiEdit (Ours)</b></td>
-                        <td class="best">84.7</td>
-                        <td class="best">93.2</td>
-                        <td class="best">87.9</td>
-                        <td class="best">88.6</td>
+                        <td>Lucy-Edit</td>
+                        <td>5B</td>
+                        <td>1280&times;704</td>
+                        <td>2.22</td>
+                        <td>2.27</td>
+                        <td>1.57</td>
+                        <td>3.20</td>
+                        <td>1.75</td>
+                        <td>2.30</td>
+                    </tr>
+                    <tr>
+                        <td>ICVE</td>
+                        <td>13B</td>
+                        <td>384&times;240</td>
+                        <td>2.18</td>
+                        <td>2.22</td>
+                        <td>1.62</td>
+                        <td>2.57</td>
+                        <td>2.51</td>
+                        <td>1.97</td>
+                    </tr>
+                    <tr>
+                        <td>DITTO</td>
+                        <td>14B</td>
+                        <td>832&times;480</td>
+                        <td>2.13</td>
+                        <td class="best">4.01</td>
+                        <td>1.68</td>
+                        <td>2.03</td>
+                        <td>1.53</td>
+                        <td>1.41</td>
+                    </tr>
+                    <tr>
+                        <td>OpenVE-Edit</td>
+                        <td>5B</td>
+                        <td>1280&times;704</td>
+                        <td>2.50</td>
+                        <td>3.16</td>
+                        <td>2.36</td>
+                        <td>2.98</td>
+                        <td>1.85</td>
+                        <td>2.15</td>
+                    </tr>
+                    <tr style="background-color:#E6F2FF;">
+                        <td><b>Ours</b> (Stage-2 Instruct-Only)</td>
+                        <td>5B</td>
+                        <td>720&times;480</td>
+                        <td>2.92</td>
+                        <td>3.54</td>
+                        <td class="second-best">3.80</td>
+                        <td>2.59</td>
+                        <td>2.55</td>
+                        <td>2.12</td>
+                    </tr>
+                    <tr style="background-color:#E6F2FF;">
+                        <td><b>Ours</b> (Stage-2 Instruct-Only)</td>
+                        <td>5B</td>
+                        <td>1280&times;704</td>
+                        <td>2.98</td>
+                        <td>3.54</td>
+                        <td class="best">3.84</td>
+                        <td>2.57</td>
+                        <td class="second-best">2.71</td>
+                        <td>2.25</td>
+                    </tr>
+                    <tr style="background-color:#E6F2FF;">
+                        <td><b>Ours</b> (Stage-3 Instruct-Reference)</td>
+                        <td>5B</td>
+                        <td>1280&times;704</td>
+                        <td class="second-best">3.02</td>
+                        <td class="second-best">3.64</td>
+                        <td>2.64</td>
+                        <td class="second-best">3.83</td>
+                        <td>2.63</td>
+                        <td class="second-best">2.36</td>
                     </tr>
                 </tbody>
             </table>
@@ -694,7 +784,7 @@
 
     <div class="container blog extra-large gray">
         <div class="method-figure">
-            <img src="https://placehold.co/1200x400/f8f9fa/888?text=KiwiEdit+Architecture+Diagram" alt="KiwiEdit architecture diagram">
+            <img src="images/model.png" alt="KiwiEdit architecture diagram">
         </div>
         <p class="caption">
             <b>Overview of KiwiEdit.</b> Given an input video, KiwiEdit processes text instructions through an instruction encoder and reference images through a visual encoder. Both conditioning signals are fused via cross-attention and fed into the video diffusion backbone along with spatiotemporal mask control signals. The model supports three editing modes: instruction-only, reference-only, and joint instruction+reference editing.
