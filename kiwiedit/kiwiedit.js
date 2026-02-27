@@ -140,9 +140,6 @@ function syncComparisonPair(firstMedia, secondMedia) {
 
     var leader = firstMedia;
     var follower = secondMedia;
-    var anchorInterval = 1.0;
-    var lastAnchorBucket = -1;
-    var visualOffset = 0;
     var isBuffering = false;
     var isStarting = false;
 
@@ -182,7 +179,7 @@ function syncComparisonPair(firstMedia, secondMedia) {
         }
         isStarting = true;
 
-        var targetTime = leader.currentTime + visualOffset;
+        var targetTime = leader.currentTime;
         if (forceSeek) {
             hardAlign(targetTime);
         }
@@ -193,13 +190,6 @@ function syncComparisonPair(firstMedia, secondMedia) {
             isBuffering = false;
         });
     }
-
-    estimateVisualOffsetFromSequence(leader, follower).then(function(offset) {
-        if (typeof offset === 'number' && Number.isFinite(offset)) {
-            visualOffset = offset;
-            alignNow(true);
-        }
-    });
 
     function hardAlign(targetTime) {
         var clamped = targetTime;
@@ -244,24 +234,13 @@ function syncComparisonPair(firstMedia, secondMedia) {
         }
 
         follower.playbackRate = leader.playbackRate;
-        var targetTime = leader.currentTime + visualOffset;
+        var targetTime = leader.currentTime;
         var drift = targetTime - follower.currentTime;
         var absDrift = Math.abs(drift);
-        var currentBucket = Math.floor((leader.currentTime || 0) / anchorInterval);
 
-        // Only do hard seek when drift is clearly visible.
-        if (forceSeek || absDrift > 0.12) {
+        // Direct time lock (no keyframe-style correction).
+        if (forceSeek || absDrift > 0.08) {
             hardAlign(targetTime);
-            lastAnchorBucket = currentBucket;
-            return;
-        }
-
-        // Keyframe-like reset: once per anchor interval, realign if drift accumulates.
-        if (currentBucket !== lastAnchorBucket) {
-            lastAnchorBucket = currentBucket;
-            if (absDrift > 0.03) {
-                hardAlign(targetTime);
-            }
         }
     }
 
@@ -301,208 +280,6 @@ function syncComparisonPair(firstMedia, secondMedia) {
         startSynchronizedPlayback(true);
     } else {
         markBuffering();
-    }
-}
-
-function estimateVisualOffsetFromSequence(firstVideo, secondVideo) {
-    var firstSrc = firstVideo.currentSrc || firstVideo.src;
-    var secondSrc = secondVideo.currentSrc || secondVideo.src;
-    if (!firstSrc || !secondSrc) {
-        return Promise.resolve(null);
-    }
-
-    if (!isSameOriginVideo(firstSrc) || !isSameOriginVideo(secondSrc)) {
-        return Promise.resolve(null);
-    }
-
-    var firstProbe = createProbeVideo(firstSrc);
-    var secondProbe = createProbeVideo(secondSrc);
-
-    return Promise.all([waitMetadata(firstProbe), waitMetadata(secondProbe)])
-        .then(function() {
-            var duration = Math.min(firstProbe.duration || 0, secondProbe.duration || 0);
-            if (!duration || duration < 0.8) {
-                return null;
-            }
-
-            var samples = 6;
-            return Promise.all([
-                sampleVideoSequence(firstProbe, duration, samples),
-                sampleVideoSequence(secondProbe, duration, samples)
-            ]).then(function(result) {
-                var firstSig = result[0];
-                var secondSig = result[1];
-                if (!firstSig.length || !secondSig.length) {
-                    return null;
-                }
-
-                var maxShift = 2;
-                var bestShift = 0;
-                var bestScore = Number.POSITIVE_INFINITY;
-                for (var shift = -maxShift; shift <= maxShift; shift++) {
-                    var score = compareShiftedSignatures(firstSig, secondSig, shift);
-                    if (score < bestScore) {
-                        bestScore = score;
-                        bestShift = shift;
-                    }
-                }
-
-                var step = duration / (samples + 1);
-                return bestShift * step;
-            });
-        })
-        .catch(function() {
-            return null;
-        })
-        .finally(function() {
-            firstProbe.remove();
-            secondProbe.remove();
-        });
-}
-
-function createProbeVideo(src) {
-    var video = document.createElement('video');
-    video.src = src;
-    video.muted = true;
-    video.preload = 'auto';
-    video.playsInline = true;
-    video.style.position = 'absolute';
-    video.style.left = '-99999px';
-    video.style.top = '-99999px';
-    video.style.width = '1px';
-    video.style.height = '1px';
-    document.body.appendChild(video);
-    return video;
-}
-
-function waitMetadata(video) {
-    if (video.readyState >= 1) {
-        return Promise.resolve();
-    }
-    return new Promise(function(resolve, reject) {
-        var onLoad = function() {
-            cleanup();
-            resolve();
-        };
-        var onError = function() {
-            cleanup();
-            reject(new Error('metadata load failed'));
-        };
-        var cleanup = function() {
-            video.removeEventListener('loadedmetadata', onLoad);
-            video.removeEventListener('error', onError);
-        };
-        video.addEventListener('loadedmetadata', onLoad, { once: true });
-        video.addEventListener('error', onError, { once: true });
-        video.load();
-    });
-}
-
-function sampleVideoSequence(video, duration, samples) {
-    var canvas = document.createElement('canvas');
-    canvas.width = 32;
-    canvas.height = 18;
-    var ctx = canvas.getContext('2d', { willReadFrequently: true });
-    if (!ctx) {
-        return Promise.resolve([]);
-    }
-
-    var times = [];
-    for (var i = 1; i <= samples; i++) {
-        times.push((duration * i) / (samples + 1));
-    }
-
-    var signatures = [];
-    var chain = Promise.resolve();
-    times.forEach(function(time) {
-        chain = chain.then(function() {
-            return seekVideo(video, time).then(function() {
-                try {
-                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                    var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-                    signatures.push(makeFrameSignature(data));
-                } catch (e) {
-                    signatures.push(null);
-                }
-            });
-        });
-    });
-
-    return chain.then(function() {
-        return signatures.filter(function(sig) { return !!sig; });
-    });
-}
-
-function seekVideo(video, time) {
-    return new Promise(function(resolve) {
-        var onSeek = function() {
-            cleanup();
-            resolve();
-        };
-        var onErr = function() {
-            cleanup();
-            resolve();
-        };
-        var cleanup = function() {
-            video.removeEventListener('seeked', onSeek);
-            video.removeEventListener('error', onErr);
-        };
-        video.addEventListener('seeked', onSeek, { once: true });
-        video.addEventListener('error', onErr, { once: true });
-        try {
-            video.currentTime = Math.max(0, time);
-        } catch (e) {
-            cleanup();
-            resolve();
-        }
-    });
-}
-
-function makeFrameSignature(pixels) {
-    var bins = new Array(8).fill(0);
-    var total = 0;
-    for (var i = 0; i < pixels.length; i += 4) {
-        var gray = 0.299 * pixels[i] + 0.587 * pixels[i + 1] + 0.114 * pixels[i + 2];
-        var bin = Math.min(7, Math.floor(gray / 32));
-        bins[bin] += 1;
-        total += 1;
-    }
-    if (!total) {
-        return null;
-    }
-    for (var j = 0; j < bins.length; j++) {
-        bins[j] = bins[j] / total;
-    }
-    return bins;
-}
-
-function compareShiftedSignatures(firstSig, secondSig, shift) {
-    var sum = 0;
-    var count = 0;
-    for (var i = 0; i < firstSig.length; i++) {
-        var j = i + shift;
-        if (j < 0 || j >= secondSig.length) {
-            continue;
-        }
-        var a = firstSig[i];
-        var b = secondSig[j];
-        for (var k = 0; k < a.length; k++) {
-            sum += Math.abs(a[k] - b[k]);
-        }
-        count += 1;
-    }
-    if (!count) {
-        return Number.POSITIVE_INFINITY;
-    }
-    return sum / count;
-}
-
-function isSameOriginVideo(src) {
-    try {
-        var url = new URL(src, window.location.href);
-        return url.origin === window.location.origin;
-    } catch (e) {
-        return false;
     }
 }
 
