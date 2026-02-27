@@ -19,6 +19,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="kiwiedit.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/foundation.min.css">
     <link href="assets/fontawesome-free-6.6.0-web/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
@@ -46,27 +48,27 @@
         <div class="blog-title no-cover">
             <div class="blog-intro">
                 <div>
-<h1 class="title" style="display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 3rem; line-height: 1.3; margin: 30px 0; text-align: center;">
-    <div style="display: flex; align-items: center; justify-content: center; gap: 0.2em; font-size: 0.9em">
-        <img src="images/logo.png" alt="Logo" style="height: 0.9em; width: auto;">
-        <span>
-            <span style="color: rgb(111,168,220);">K</span><span style="color: rgb(111,176,81);">i</span><span style="color: rgb(224,103,102);">w</span><span style="color: rgb(246,178,107);">i</span>-Edit: Versatile Video Editing
-        </span>
-    </div>
-    <div style="font-size: 0.9em; margin-top: 0.2em;">
-        via Instruction and Reference Guidance
-    </div>
-</h1>
+                    <h1 class="title" style="display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: system-ui, -apple-system, sans-serif; font-weight: 700; font-size: 3rem; line-height: 1.3; margin: 30px 0; text-align: center;">
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 0.2em; font-size: 0.9em">
+                            <img src="images/logo.png" alt="Logo" style="height: 0.9em; width: auto;">
+                            <span>
+                                <span style="color: rgb(111,168,220);">K</span><span style="color: rgb(111,176,81);">i</span><span style="color: rgb(224,103,102);">w</span><span style="color: rgb(246,178,107);">i</span>-Edit: Versatile Video Editing
+                            </span>
+                        </div>
+                        <div style="font-size: 0.9em; margin-top: 0.2em;">
+                            via Instruction and Reference Guidance
+                        </div>
+                    </h1>
                     <p class="author">
-                        <a href="#" class="author-link">Yiqi Lin</a>,
-                        <a href="#" class="author-link">Guoqiang Liang</a>,
-                        <a href="#" class="author-link">Ziyun Zeng</a>,
-                        <a href="#" class="author-link">Zechen Bai</a>,
-                        <a href="#" class="author-link">Yanzhe Chen</a>,
-                        <a href="#" class="author-link">Mike Zheng Shou</a><sup>✉️</sup>
+                        <a href="#" >Yiqi Lin</a>,
+                        <a href="#" >Guoqiang Liang</a>,
+                        <a href="#" >Ziyun Zeng</a>,
+                        <a href="#" >Zechen Bai</a>,
+                        <a href="#" >Yanzhe Chen</a>, <br>
+                        <a href="#" >Mike Zheng Shou</a><sup>✉️</sup>
                     </p>
                     <p class="author author-affiliation">
-                        <a href="https://sites.google.com/view/showlab/home" >ShowLab</a>, National University of Singapore &nbsp;&nbsp;
+                        <a href="https://sites.google.com/view/showlab/home" class="author-link">ShowLab, National University of Singapore</a> &nbsp;&nbsp;
                     </p>
                     <p class="abstract">
                         We present <b>KiwiEdit</b>, a unified framework for high-quality video editing that seamlessly handles three editing paradigms: <em>text instruction-guided editing</em>, <em>reference image-guided editing</em>, and the novel <em>reference image + text instruction joint editing</em>. By unifying these tasks under a single model with shared spatiotemporal control, KiwiEdit achieves state-of-the-art results across all three settings while maintaining strong temporal consistency.
@@ -126,70 +128,142 @@
     <div class="container blog extra-large">
         <!-- Tabs -->
         <div class="gallery-tabs" data-gallery="instruction">
-            <span class="gallery-tab active" data-target="global">Global Style</span>
-            <span class="gallery-tab" data-target="local">Global Changes</span>
-            <span class="gallery-tab" data-target="style">Local Replace</span>
+            <span class="gallery-tab active" data-target="style">Global Style</span>
+            <span class="gallery-tab" data-target="global">Global Changes</span>
+            <span class="gallery-tab" data-target="local">Local Replace</span>
             <span class="gallery-tab" data-target="add">Add Object</span>
             <span class="gallery-tab" data-target="remove">Removal</span>
         </div>
 
-        <!-- Global Edits -->
-        <div class="gallery-content active" data-gallery="instruction" data-id="global">
+        <!-- Style Transfer -->
+        <div class="gallery-content active" data-gallery="instruction" data-id="style">
             <div class="video-grid">
                 <div class="video-item">
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0009_global_style_Apply_the_sketch_sty_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0009_global_style_Apply_the_sketch_sty.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Make it a winter scene with snow covering the ground"</div>
+                    <div class="edit-caption">"Apply the sketch style to this video."</div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0014_global_style_Apply_the_Cartoon_an_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0014_global_style_Apply_the_Cartoon_an.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Turn the daytime scene into a sunset with warm orange sky"</div>
+                    <div class="edit-caption">"Apply the Cartoon animation style to this video."</div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0007_global_style_Apply_the_dynamic_ae_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0007_global_style_Apply_the_dynamic_ae.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Make it look like it's raining heavily"</div>
+                    <div class="edit-caption">"Apply the dynamic aesthetic of abstract art to this video."</div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0041_global_style_Apply_the_Pop_Art_st_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0041_global_style_Apply_the_Pop_Art_st.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Transform the landscape into an underwater scene"</div>
+                    <div class="edit-caption">"Apply the Pop Art style to this video."</div>
+                </div>
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0035_global_style_Apply_the_Watercolor_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0035_global_style_Apply_the_Watercolor.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Apply the Watercolor style to this video."</div>
+                </div>
+            </div>
+        </div>
+        <!-- Global Edits -->
+        <div class="gallery-content" data-gallery="instruction" data-id="global">
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0019_global_style_Apply_the_sunny_aest_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0019_global_style_Apply_the_sunny_aest.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Apply the sunny aesthetic to this video."</div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0016_global_style_Apply_the_immersive_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0016_global_style_Apply_the_immersive.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Apply the immersive snowy style to this video."</div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0025_global_style_Apply_the_dawn_aesth_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0025_global_style_Apply_the_dawn_aesth.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Apply the dawn aesthetic to this video."</div>
+                </div>
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0011_global_style_Apply_the_pixel_art_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0011_global_style_Apply_the_pixel_art.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Apply the night aesthetic to this video."</div>
                 </div>
             </div>
         </div>
@@ -241,85 +315,6 @@
             </div>
         </div>
 
-        <!-- Style Transfer -->
-        <div class="gallery-content" data-gallery="instruction" data-id="style">
-            <div class="video-grid">
-                <div class="video-item">
-                    <div class="video-pair">
-                        <div>
-                            <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
-                        </div>
-                        <div>
-                            <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
-                        </div>
-                    </div>
-                    <div class="edit-caption">"Render in Studio Ghibli anime style"</div>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-pair">
-                        <div>
-                            <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
-                        </div>
-                        <div>
-                            <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
-                        </div>
-                    </div>
-                    <div class="edit-caption">"Apply Van Gogh Starry Night painting style"</div>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-pair">
-                        <div>
-                            <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
-                        </div>
-                        <div>
-                            <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
-                        </div>
-                    </div>
-                    <div class="edit-caption">"Turn into a pixel art retro game style"</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Change Action -->
-        <div class="gallery-content" data-gallery="instruction" data-id="action">
-            <div class="video-grid">
-                <div class="video-item">
-                    <div class="video-pair">
-                        <div>
-                            <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
-                        </div>
-                        <div>
-                            <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
-                        </div>
-                    </div>
-                    <div class="edit-caption">"Make the person start dancing instead of walking"</div>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-pair">
-                        <div>
-                            <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
-                        </div>
-                        <div>
-                            <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
-                        </div>
-                    </div>
-                    <div class="edit-caption">"Make the bird fly in circles instead of a straight line"</div>
-                </div>
-            </div>
-        </div>
 
         <!-- Add Object -->
         <div class="gallery-content" data-gallery="instruction" data-id="add">
@@ -361,28 +356,28 @@
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0239_local_remove_Remove_the_small_bir_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0239_local_remove_Remove_the_small_bir.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Remove the text watermark from the video"</div>
+                    <div class="edit-caption">"Remove the small bird."</div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0191_local_remove_Remove_the_person_we_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0191_local_remove_Remove_the_person_we.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Remove the person walking in the background"</div>
+                    <div class="edit-caption">"Remove the person wearing a light blue shirt and dark pants from the entire video sequence."</div>
                 </div>
             </div>
         </div>
