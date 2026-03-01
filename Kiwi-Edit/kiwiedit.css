@@ -318,6 +318,49 @@
   overflow: hidden;
 }
 
+.video-loading-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.65);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.video-comparison-wrap.is-loading .video-loading-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-loading-spinner {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px solid rgba(42, 122, 184, 0.2);
+  border-top-color: #2a7ab8;
+  animation: kiwi-spin 0.9s linear infinite;
+}
+
+.video-loading-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.74em;
+  color: #2a7ab8;
+  font-weight: 500;
+}
+
+@keyframes kiwi-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .comparison-legend {
   position: absolute;
   top: 10px;
