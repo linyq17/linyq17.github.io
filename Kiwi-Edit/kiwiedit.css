@@ -687,7 +687,7 @@
 
 /* ======================== Full Content Width ===================== */
 .container {
-  width: min(75vw, 1500px);
+  width: min(60vw, 1500px);
   margin-left: auto;
   margin-right: auto;
   padding-left: 0;
