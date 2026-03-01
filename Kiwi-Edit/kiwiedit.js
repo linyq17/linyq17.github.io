@@ -61,42 +61,56 @@ function initVideoComparisons() {
             var secondLabelNode = secondBlock.querySelector('.pair-label');
             var firstLabel = firstLabelNode ? firstLabelNode.textContent.trim() : 'Input';
             var secondLabel = secondLabelNode ? secondLabelNode.textContent.trim() : 'Output';
-
-            prepareMedia(firstMedia);
-            prepareMedia(secondMedia);
-
-            var slider = document.createElement('img-comparison-slider');
-            slider.className = 'slider-container video-comparison';
-
-            var before = document.createElement('figure');
-            before.setAttribute('slot', 'first');
-            before.className = 'before';
-            before.appendChild(firstMedia);
-
-            var after = document.createElement('figure');
-            after.setAttribute('slot', 'second');
-            after.className = 'after';
-            after.appendChild(secondMedia);
-
-            var wrapper = document.createElement('div');
-            wrapper.className = 'video-comparison-wrap';
-
-            var leftLegend = document.createElement('span');
-            leftLegend.className = 'comparison-legend left';
-            leftLegend.textContent = firstLabel;
-
-            var rightLegend = document.createElement('span');
-            rightLegend.className = 'comparison-legend right';
-            rightLegend.textContent = secondLabel;
-
-            slider.appendChild(before);
-            slider.appendChild(after);
-            wrapper.appendChild(slider);
-            wrapper.appendChild(leftLegend);
-            wrapper.appendChild(rightLegend);
+            var wrapper = buildComparisonSlider(firstMedia, secondMedia, firstLabel, secondLabel);
+            if (!wrapper) {
+                return;
+            }
             pair.replaceWith(wrapper);
+        });
 
-            syncComparisonPair(firstMedia, secondMedia);
+        var referenceTriples = document.querySelectorAll('.gallery-content[data-gallery="reference"] .video-triple');
+        referenceTriples.forEach(function(triple) {
+            var blocks = triple.children;
+            if (!blocks || blocks.length < 3) {
+                return;
+            }
+
+            var refBlock = blocks[0];
+            var inputBlock = blocks[1];
+            var outputBlock = blocks[2];
+            var refMedia = refBlock.querySelector('video, img');
+            var inputMedia = inputBlock.querySelector('video, img');
+            var outputMedia = outputBlock.querySelector('video, img');
+            if (!refMedia || !inputMedia || !outputMedia) {
+                return;
+            }
+
+            var refLabelNode = refBlock.querySelector('.pair-label');
+            var inputLabelNode = inputBlock.querySelector('.pair-label');
+            var outputLabelNode = outputBlock.querySelector('.pair-label');
+            var refLabel = refLabelNode ? refLabelNode.textContent.trim() : 'Reference';
+            var inputLabel = inputLabelNode ? inputLabelNode.textContent.trim() : 'Input';
+            var outputLabel = outputLabelNode ? outputLabelNode.textContent.trim() : 'Output';
+            var compareWrapper = buildComparisonSlider(inputMedia, outputMedia, inputLabel, outputLabel);
+            var refWrapper = buildReferenceMedia(refMedia, refLabel);
+            if (!compareWrapper || !refWrapper) {
+                return;
+            }
+
+            var layout = document.createElement('div');
+            layout.className = 'reference-compare';
+
+            var refPanel = document.createElement('div');
+            refPanel.className = 'reference-compare-ref';
+            refPanel.appendChild(refWrapper);
+
+            var sliderPanel = document.createElement('div');
+            sliderPanel.className = 'reference-compare-slider';
+            sliderPanel.appendChild(compareWrapper);
+
+            layout.appendChild(refPanel);
+            layout.appendChild(sliderPanel);
+            triple.replaceWith(layout);
         });
 
         var grids = document.querySelectorAll('.video-grid');
@@ -118,6 +132,66 @@ function initVideoComparisons() {
     window.customElements.whenDefined('img-comparison-slider').then(function() {
         convertPairs();
     });
+}
+
+function buildReferenceMedia(media, label) {
+    if (!media) {
+        return null;
+    }
+
+    prepareMedia(media);
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'video-comparison-wrap reference-media-wrap';
+    wrapper.appendChild(media);
+
+    var legend = document.createElement('span');
+    legend.className = 'comparison-legend left';
+    legend.textContent = label || 'Reference';
+    wrapper.appendChild(legend);
+    return wrapper;
+}
+
+function buildComparisonSlider(firstMedia, secondMedia, firstLabel, secondLabel) {
+    if (!firstMedia || !secondMedia) {
+        return null;
+    }
+
+    prepareMedia(firstMedia);
+    prepareMedia(secondMedia);
+
+    var slider = document.createElement('img-comparison-slider');
+    slider.className = 'slider-container video-comparison';
+
+    var before = document.createElement('figure');
+    before.setAttribute('slot', 'first');
+    before.className = 'before';
+    before.appendChild(firstMedia);
+
+    var after = document.createElement('figure');
+    after.setAttribute('slot', 'second');
+    after.className = 'after';
+    after.appendChild(secondMedia);
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'video-comparison-wrap';
+
+    var leftLegend = document.createElement('span');
+    leftLegend.className = 'comparison-legend left';
+    leftLegend.textContent = firstLabel || 'Input';
+
+    var rightLegend = document.createElement('span');
+    rightLegend.className = 'comparison-legend right';
+    rightLegend.textContent = secondLabel || 'Output';
+
+    slider.appendChild(before);
+    slider.appendChild(after);
+    wrapper.appendChild(slider);
+    wrapper.appendChild(leftLegend);
+    wrapper.appendChild(rightLegend);
+
+    syncComparisonPair(firstMedia, secondMedia);
+    return wrapper;
 }
 
 function prepareMedia(media) {

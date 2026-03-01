@@ -94,17 +94,17 @@
             <div class="feature-card gradient-purple">
                 <span class="card-icon"><i class="fa-solid fa-film"></i></span>
                 <!-- <span class="card-icon"><i class="fa-solid fa-object-group"></i></span> -->
-                <h3>Fully Open-Source</h3>
+                <h3>Fully Open Source</h3>
                 <p>Codes, models, and datasets are fully open-sourced.</p>
             </div>
             <div class="feature-card gradient-blue">
                 <span class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
-                <h3>Instruction-Guided Editing</h3>
+                <h3>Instruction Guided Editing</h3>
                 <p>Edit videos with natural language instructions for global and local modifications.</p>
             </div>
             <div class="feature-card gradient-green">
                 <span class="card-icon"><i class="fa-solid fa-image"></i></span>
-                <h3>Reference Image-Guided</h3>
+                <h3>Reference Image Guided</h3>
                 <p>Replace the background and Insert a reference object from a reference image to the target video.</p>
             </div>
             
@@ -130,6 +130,7 @@
         <div class="gallery-tabs" data-gallery="instruction">
             <span class="gallery-tab active" data-target="style">Global Style</span>
             <span class="gallery-tab" data-target="global">Global Changes</span>
+            <span class="gallery-tab" data-target="background">Background Replace</span>
             <span class="gallery-tab" data-target="remove">Local Remove</span>
             <span class="gallery-tab" data-target="replace">Local Replace</span>
             <span class="gallery-tab" data-target="add">Local Add</span>
@@ -208,6 +209,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Global Edits -->
         <div class="gallery-content" data-gallery="instruction" data-id="global">
             <div class="video-grid">
@@ -267,6 +269,66 @@
                 </div>
             </div>
         </div>
+
+        <!-- Change background -->
+        <div class="gallery-content" data-gallery="instruction" data-id="background">
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0145_background_change_Replace_the_backgrou_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0145_background_change_Replace_the_backgrou.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Replace the background with a lively urban garden scene during winter."</div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0135_background_change_Replace_the_backgrou2_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0135_background_change_Replace_the_backgrou2.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Replace the background with a dynamic snowy mountain retreat."</div>
+                </div>
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0162_background_change_Transform_the_backgr3_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0162_background_change_Transform_the_backgr3.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Transform the background into a dynamic mountain sunrise scene."</div>
+                </div>
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0143_background_change_Replace_the_backgrou_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0143_background_change_Replace_the_backgrou.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Replace the background with a dynamic modern conference room where sunlight streams through glass walls casting moving shadows."</div>
+                </div>
+            </div>
+        </div>
+
         <!-- Removal -->
         <div class="gallery-content" data-gallery="instruction" data-id="remove">
             <div class="video-grid">
@@ -346,14 +408,14 @@
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="videos/0084_local_change_Replace_the_stone_be_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0309_creative_edit_Given_the_video_of_t_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="videos/0084_local_change_Replace_the_stone_be.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0309_creative_edit_Given_the_video_of_t.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Replace the stone bench with a rustic wooden bench made of weathered planks."</div>
+                    <div class="edit-caption">"Transform the entire bread surface into a miniature lush forest with green trees, moss, and tiny flowers shaped exactly like the loaf."</div>
                 </div>
 
                 <div class="video-item">
@@ -387,14 +449,14 @@
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="videos/0066_local_change_Replace_the_red_Rena_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0091_local_change_Replace_the_plant_wi_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="videos/0066_local_change_Replace_the_red_Rena.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0091_local_change_Replace_the_plant_wi.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Replace the red Renault Duster car with a rugged off-road version featuring larger tires and roof-mounted spotlights."</div>
+                    <div class="edit-caption">"Replace the plant with broad green leaves with a lush tropical palm plant."</div>
                 </div>
             </div>
         </div>
@@ -407,64 +469,59 @@
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0290_local_add_Overlay_an_animated_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0290_local_add_Overlay_an_animated.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Add a flying drone in the sky"</div>
+                    <div class="edit-caption">"Add an small dark green backpack onto the person's back, ensuring it is perfectly tracked to their movements."</div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-pair">
                         <div>
                             <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0095_local_change_Add_a_classic_brown_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0095_local_change_Add_a_classic_brown.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">"Add sunglasses to the person"</div>
+                    <div class="edit-caption">"Add a classic brown fedora hat to the boy's head."</div>
+                </div>
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0101_local_change_Add_a_neatly_trimmed_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0101_local_change_Add_a_neatly_trimmed.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Add a neatly trimmed dark beard to the man."</div>
+                </div>
+                <div class="video-item">
+                    <div class="video-pair">
+                        <div>
+                            <div class="pair-label">Input</div>
+                            <video loop playsinline muted autoplay src="videos/0269_local_add_Overlay_an_animated_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0269_local_add_Overlay_an_animated.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">"Add an floor lamp near the corner of the room in front of the desk behind the man."</div>
                 </div>
             </div>
         </div>
 
-        <!-- Change Material -->
-        <div class="gallery-content" data-gallery="instruction" data-id="material">
-            <div class="video-grid">
-                <div class="video-item">
-                    <div class="video-pair">
-                        <div>
-                            <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
-                        </div>
-                        <div>
-                            <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
-                        </div>
-                    </div>
-                    <div class="edit-caption">"Make the wooden table look like marble"</div>
-                </div>
 
-                <div class="video-item">
-                    <div class="video-pair">
-                        <div>
-                            <div class="pair-label">Input</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
-                        </div>
-                        <div>
-                            <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
-                        </div>
-                    </div>
-                    <div class="edit-caption">"Turn the metal fence into a glass barrier"</div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -478,12 +535,12 @@
 
     <div class="container blog extra-large">
         <div class="gallery-tabs" data-gallery="reference">
-            <span class="gallery-tab active" data-target="ref-style">Background Replace</span>
-            <span class="gallery-tab" data-target="ref-appearance">Subject Edit</span>
+            <span class="gallery-tab active" data-target="ref-background">Background Replace</span>
+            <span class="gallery-tab" data-target="ref-subject">Subject Edit</span>
         </div>
 
         <!-- Reference Style Transfer -->
-        <div class="gallery-content active" data-gallery="reference" data-id="ref-style">
+        <div class="gallery-content active" data-gallery="reference" data-id="ref-background">
             <div class="video-grid">
                 <div class="video-item">
                     <div class="video-triple">
@@ -493,11 +550,11 @@
                         </div>
                         <div>
                             <div class="pair-label">Input Video</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0091_local_change_Replace_the_plant_wi_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0091_local_change_Replace_the_plant_wi_raw.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
                     <div class="edit-caption">Reference: Oil painting with thick brush strokes</div>
@@ -542,7 +599,7 @@
         </div>
 
         <!-- Reference Appearance Transfer -->
-        <div class="gallery-content" data-gallery="reference" data-id="ref-appearance">
+        <div class="gallery-content" data-gallery="reference" data-id="ref-subject">
             <div class="video-grid">
                 <div class="video-item">
                     <div class="video-triple">
