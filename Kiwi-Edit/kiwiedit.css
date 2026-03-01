@@ -547,6 +547,7 @@
 .results-table-wrapper table {
   width: 100%;
   border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .results-table-wrapper th {
@@ -569,6 +570,12 @@
 
 .results-table-wrapper tr:nth-child(odd) td {
   background: #fafbfc;
+}
+
+.results-table-wrapper tr[style*="background-color:#E6F2FF"] td,
+.results-table-wrapper tr[style*="background-color: #E6F2FF"] td {
+  background-color: #E6F2FF !important;
+  border-bottom-color: #d7e7f8;
 }
 
 .results-table-wrapper .best {

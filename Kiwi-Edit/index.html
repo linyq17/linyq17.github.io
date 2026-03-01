@@ -10,7 +10,7 @@
     <meta content="en_EN" property="og:locale">
     <meta content="website" property="og:type">
     <meta content="KiwiEdit" property="og:title">
-    <meta content="Unified Instruction and Reference-Guided Video Editing" property="og:description">
+    <meta content="Kiwi-Edit: Versatile Video Editing via Instruction and Reference Guidance" property="og:description">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="Kiwi-Edit: Versatile Video Editing via Instruction and Reference Guidance">
@@ -71,15 +71,15 @@
                         <a href="https://sites.google.com/view/showlab/home" class="author-link">ShowLab, National University of Singapore</a> &nbsp;&nbsp;
                     </p>
                     <p class="abstract">
-                        We present <b>KiwiEdit</b>, a unified framework for high-quality video editing that seamlessly handles three editing paradigms: <em>text instruction-guided editing</em>, <em>reference image-guided editing</em>, and the novel <em>reference image + text instruction joint editing</em>. By unifying these tasks under a single model with shared spatiotemporal control, KiwiEdit achieves state-of-the-art results across all three settings while maintaining strong temporal consistency.
+                        We present <b>KiwiEdit</b>, a unified and <b>fully open-source</b> framework for instruction-guided and reference-guided video editing using natural language. KiwiEdit supports high-quality, temporally consistent edits across global and local tasks, and delivers strong open-model performance at <b>720p resolution</b> with released code, models, and datasets.
                     </p>
 
                     <div class="info">
                         <div>
                             <a href="#" class="button icon" style="background-color: rgba(255, 255, 255, 0.25)"> Paper <i class="fa-solid fa-book-open"></i></a> &nbsp;&nbsp;
-                            <a href="#" class="button icon" style="background-color: rgba(255, 255, 255, 0.25)">Code <i class="fa-solid fa-code"></i></a> &nbsp;&nbsp;
-                            <a href="#" class="button icon" style="background-color: rgba(255, 255, 255, 0.25)">Model <i class="fa-solid fa-cube"></i></a> &nbsp;&nbsp;
-                            <a href="#" class="button icon" style="background-color: rgba(255, 255, 255, 0.25)">Datasets <i class="fa-solid fa-video-camera"></i></a>
+                            <a href="#" class="button icon" style="background-color: rgba(255, 255, 255, 0.25)"> Code <i class="fa-solid fa-code"></i></a> &nbsp;&nbsp;
+                            <a href="#" class="button icon" style="background-color: rgba(255, 255, 255, 0.25)"> Model <i class="fa-solid fa-cube"></i></a> &nbsp;&nbsp;
+                            <a href="#" class="button icon" style="background-color: rgba(255, 255, 255, 0.25)"> Datasets <i class="fa-solid fa-video-camera"></i></a>
                         </div>
                     </div>
                 </div>
@@ -529,7 +529,7 @@
     <div class="container blog main">
         <h1>Reference Image-Guided Video Editing</h1>
         <p class="text">
-            KiwiEdit can transfer visual attributes from a reference image to the target video. The model extracts style, texture, and appearance information from the reference image while preserving the original motion and structure of the video.
+            KiwiEdit can transfer visual attributes from a reference image to the target video. The model extracts background or subject information from the reference image while preserving the original motion and structure of the video.
         </p>
     </div>
 
@@ -546,54 +546,72 @@
                     <div class="video-triple">
                         <div>
                             <div class="pair-label">Reference</div>
-                            <img src="https://placehold.co/200x200/fde8e8/666?text=Ref+Image" alt="Reference image">
+                            <img src="images/0_mountain_ink_1664_928_0.png" alt="Reference image">
                         </div>
                         <div>
                             <div class="pair-label">Input Video</div>
-                            <video loop playsinline muted autoplay src="videos/0091_local_change_Replace_the_plant_wi_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/1_Replace_th_gym-ball_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="videos/0091_local_change_Replace_the_plant_wi_raw.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/1_Replace_th_gym-ball.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">Reference: Oil painting with thick brush strokes</div>
+                    <div class="edit-caption">Replace the background with a Chinese ink painting, featuring a large golden mountain peak rising above swirling clouds.</div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-triple">
                         <div>
                             <div class="pair-label">Reference</div>
-                            <img src="https://placehold.co/200x200/e8e8fd/666?text=Ref+Image" alt="Reference image">
+                            <img src="images/21_ghibli_summer_clouds_1664_928_0.png" alt="Reference image">
                         </div>
                         <div>
                             <div class="pair-label">Input Video</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/16_Replace_th_0234_local_remove_Remove_the_person_in_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/16_Replace_th_0234_local_remove_Remove_the_person_in.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">Reference: Watercolor illustration style</div>
+                    <div class="edit-caption">Replace the background with a serene anime-style landscape, featuring a massive, fluffy cumulonimbus cloud towering over a windswept grassy hill.</div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-triple">
                         <div>
                             <div class="pair-label">Reference</div>
-                            <img src="https://placehold.co/200x200/fdf0e8/666?text=Ref+Image" alt="Reference image">
+                            <img src="images/7_fairytale_storybook_style_1664_928_0.png" alt="Reference image">
                         </div>
                         <div>
                             <div class="pair-label">Input Video</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/29_Replace_th_hike_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/29_Replace_th_hike.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">Reference: Cyberpunk neon aesthetic</div>
+                    <div class="edit-caption">Replace the background with a whimsical fairytale landscape, featuring colorful mushroom houses and a floating castle in a magical forest.</div>
+                </div>
+
+                <div class="video-item">
+                    <div class="video-triple">
+                        <div>
+                            <div class="pair-label">Reference</div>
+                            <img src="images/bg_07_1664_928_0.png" alt="Reference image">
+                        </div>
+                        <div>
+                            <div class="pair-label">Input Video</div>
+                            <video loop playsinline muted autoplay src="videos/10_Replace_th_0103_local_change_Replace_the_green_le_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/10_Replace_th_0103_local_change_Replace_the_green_le.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">Replace the background with the Pyramids of Giza, ancient triangular monuments standing in the desert sand.</div>
                 </div>
             </div>
         </div>
@@ -605,92 +623,87 @@
                     <div class="video-triple">
                         <div>
                             <div class="pair-label">Reference</div>
-                            <img src="https://placehold.co/200x200/e8fde8/666?text=Ref+Image" alt="Reference image">
+                            <img src="images/26_flatlay_techwear_jacket_1328_1328_1.png" alt="Reference image">
                         </div>
                         <div>
                             <div class="pair-label">Input Video</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/38_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/38.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">Reference: Golden retriever appearance applied to walking dog</div>
+                    <div class="edit-caption">Replace the girl's cloth with a matte black techwear tactical jacket.</div>
                 </div>
 
                 <div class="video-item">
                     <div class="video-triple">
                         <div>
                             <div class="pair-label">Reference</div>
-                            <img src="https://placehold.co/200x200/fde8f0/666?text=Ref+Image" alt="Reference image">
+                            <img src="images/41_shape_heart_sunglasses_1328_1328_1.png" alt="Reference image">
                         </div>
                         <div>
                             <div class="pair-label">Input Video</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0125_background_change_Replace_the_backgrou_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
                         </div>
                         <div>
                             <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                            <video loop playsinline muted autoplay src="videos/0125_background_change_Replace_the_backgrou.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
                         </div>
                     </div>
-                    <div class="edit-caption">Reference: Sports car appearance transferred to sedan</div>
+                    <div class="edit-caption">Add a pair of iconic red heart-shaped sunglasses to the girl's face.</div>
+                </div>
+                <div class="video-item">
+                    <div class="video-triple">
+                        <div>
+                            <div class="pair-label">Reference</div>
+                            <img src="images/75_ref_chair_midcentury_leather_1328_1328_1.png" alt="Reference image">
+                        </div>
+                        <div>
+                            <div class="pair-label">Input Video</div>
+                            <video loop playsinline muted autoplay src="videos/0097_local_change_Replace_the_mans_or_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0097_local_change_Replace_the_mans_or.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">Replace the sofa with a mid-century modern lounge chair with an ottoman.</div>
+                </div>
+                <div class="video-item">
+                    <div class="video-triple">
+                        <div>
+                            <div class="pair-label">Reference</div>
+                            <img src="images/87_ref_hair_blonde_waves_back_1328_1328_1.png" alt="Reference image">
+                        </div>
+                        <div>
+                            <div class="pair-label">Input Video</div>
+                            <video loop playsinline muted autoplay src="videos/0078_local_change_Add_stylish_black_ca_raw.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
+                        </div>
+                        <div>
+                            <div class="pair-label">Output</div>
+                            <video loop playsinline muted autoplay src="videos/0078_local_change_Add_stylish_black_ca.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
+                        </div>
+                    </div>
+                    <div class="edit-caption">Replace the woman's hair with hair style of long, voluminous platinum blonde hair with loose waves.</div>
                 </div>
             </div>
         </div>
 
-        <!-- Reference Texture Transfer -->
-        <div class="gallery-content" data-gallery="reference" data-id="ref-texture">
-            <div class="video-grid">
-                <div class="video-item">
-                    <div class="video-triple">
-                        <div>
-                            <div class="pair-label">Reference</div>
-                            <img src="https://placehold.co/200x200/f0e8fd/666?text=Ref+Image" alt="Reference image">
-                        </div>
-                        <div>
-                            <div class="pair-label">Input Video</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
-                        </div>
-                        <div>
-                            <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
-                        </div>
-                    </div>
-                    <div class="edit-caption">Reference: Marble texture applied to building facade</div>
-                </div>
-
-                <div class="video-item">
-                    <div class="video-triple">
-                        <div>
-                            <div class="pair-label">Reference</div>
-                            <img src="https://placehold.co/200x200/e8f0fd/666?text=Ref+Image" alt="Reference image">
-                        </div>
-                        <div>
-                            <div class="pair-label">Input Video</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/e8e8e8/aaa?text=Input+Video"></video>
-                        </div>
-                        <div>
-                            <div class="pair-label">Output</div>
-                            <video loop playsinline muted autoplay src="https://placehold.co/320x180.mp4" poster="https://placehold.co/320x180/d8e8d4/666?text=Edited+Video"></video>
-                        </div>
-                    </div>
-                    <div class="edit-caption">Reference: Knitted wool texture applied to clothing</div>
-                </div>
-            </div>
-        </div>
     </div>
+
 
     <!-- ======================== Quantitative Results ======================== -->
     <div class="container blog main">
         <h1>Quantitative Results</h1>
 
-        <h2>Automated Evaluation</h2>
+        <h2>OpenVE-Bench</h2>
         <p class="text">
             We evaluate on OpenVE-Bench, assessed by Gemini-2.5-Pro, across five editing categories: Global Style, Background Change, Local Change, Local Remove, and Local Add. KiwiEdit (Stage-3 Instruct-Reference) achieves the best overall score among open-source methods.
         </p>
 
-        <div class="results-table-wrapper wide">
+        <div class="results-table-wrapper">
             <table>
                 <thead>
                     <tr>
@@ -706,17 +719,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Runway Aleph</td>
-                        <td>-</td>
-                        <td>1280&times;720</td>
-                        <td class="best">3.49</td>
-                        <td class="second-best">3.72</td>
-                        <td>2.62</td>
-                        <td class="best">4.18</td>
-                        <td class="best">4.16</td>
-                        <td class="best">2.78</td>
-                    </tr>
                     <tr>
                         <td>VACE</td>
                         <td>14B</td>
@@ -777,7 +779,7 @@
                         <td>14B</td>
                         <td>832&times;480</td>
                         <td>2.13</td>
-                        <td class="best">4.01</td>
+                        <td>4.01</td>
                         <td>1.68</td>
                         <td>2.03</td>
                         <td>1.53</td>
@@ -800,7 +802,7 @@
                         <td>720&times;480</td>
                         <td>2.92</td>
                         <td>3.54</td>
-                        <td class="second-best">3.80</td>
+                        <td>3.80</td>
                         <td>2.59</td>
                         <td>2.55</td>
                         <td>2.12</td>
@@ -811,59 +813,89 @@
                         <td>1280&times;704</td>
                         <td>2.98</td>
                         <td>3.54</td>
-                        <td class="best">3.84</td>
+                        <td>3.84</td>
                         <td>2.57</td>
-                        <td class="second-best">2.71</td>
+                        <td>2.71</td>
                         <td>2.25</td>
                     </tr>
                     <tr style="background-color:#E6F2FF;">
                         <td><b>Ours</b> (Stage-3 Instruct-Reference)</td>
                         <td>5B</td>
                         <td>1280&times;704</td>
-                        <td class="second-best">3.02</td>
-                        <td class="second-best">3.64</td>
+                        <td>3.02</td>
+                        <td>3.64</td>
                         <td>2.64</td>
-                        <td class="second-best">3.83</td>
+                        <td>3.83</td>
                         <td>2.63</td>
-                        <td class="second-best">2.36</td>
+                        <td>2.36</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <h2>User Study</h2>
+        <h2>RefVIE-Bench</h2>
         <p class="text">
-            We conduct a user study comparing KiwiEdit against the strongest baselines. Users rate edited videos on three criteria: instruction alignment, preservation of unedited regions, and video quality. Win/tie/loss ratios (%) are reported.
+            We report subject-reference and background-reference evaluation scores on <b>RefVIE-Bench</b>. The table summarizes identity/temporal/physical consistency for subject guidance, reference similarity/matting/video quality for background guidance, and an overall score.
         </p>
 
         <div class="results-table-wrapper">
             <table>
                 <thead>
                     <tr>
-                        <th>vs. Method</th>
-                        <th>Instruction Alignment</th>
-                        <th>Region Preservation</th>
+                        <th rowspan="2">Model</th>
+                        <th colspan="3">Subject Reference</th>
+                        <th colspan="3">Background Reference</th>
+                        <th rowspan="2">Overall</th>
+                    </tr>
+                    <tr>
+                        <th>Identity Consist.</th>
+                        <th>Temporal Consist.</th>
+                        <th>Physical Consist.</th>
+                        <th>Reference Sim.</th>
+                        <th>Matting Quality</th>
                         <th>Video Quality</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>vs. EasyV2V</td>
-                        <td>62 / 21 / 17</td>
-                        <td>55 / 28 / 17</td>
-                        <td>58 / 26 / 16</td>
+                        <td>Runway Aleph</td>
+                        <td>3.79</td>
+                        <td>3.65</td>
+                        <td>3.58</td>
+                        <td>3.33</td>
+                        <td>2.81</td>
+                        <td>2.58</td>
+                        <td>3.29</td>
                     </tr>
                     <tr>
-                        <td>vs. InsV2V</td>
-                        <td>71 / 16 / 13</td>
-                        <td>64 / 22 / 14</td>
-                        <td>67 / 20 / 13</td>
+                        <td>Kling-O1</td>
+                        <td>4.75</td>
+                        <td>4.66</td>
+                        <td>4.60</td>
+                        <td>3.95</td>
+                        <td>3.21</td>
+                        <td>2.75</td>
+                        <td>3.99</td>
                     </tr>
-                    <tr>
-                        <td>vs. AnyV2V</td>
-                        <td>68 / 18 / 14</td>
-                        <td>61 / 24 / 15</td>
-                        <td>65 / 22 / 13</td>
+                    <tr style="background-color:#E6F2FF;">
+                        <td><b>Ours</b> (All data)</td>
+                        <td>3.51</td>
+                        <td>2.96</td>
+                        <td>2.91</td>
+                        <td>3.40</td>
+                        <td>2.58</td>
+                        <td>2.40</td>
+                        <td>2.96</td>
+                    </tr>
+                    <tr style="background-color:#E6F2FF;">
+                        <td><b>Ours</b> (Ref. data only)</td>
+                        <td>3.98</td>
+                        <td>3.40</td>
+                        <td>3.34</td>
+                        <td>3.72</td>
+                        <td>2.90</td>
+                        <td>2.51</td>
+                        <td>3.31</td>
                     </tr>
                 </tbody>
             </table>
@@ -873,39 +905,48 @@
 
     <!-- ======================== Method ======================== -->
     <div class="container blog main">
-        <h1>Method</h1>
+        <h1>Methodology</h1>
+        <h2>Architecture Design</h2>
         <p class="text">
-            KiwiEdit is built on a video diffusion backbone and introduces a <b>unified conditioning framework</b> that jointly handles text instructions, reference images, and their combination. Our approach rests on three pillars:
+            KiwiEdit combines a Multimodal LLM and a video diffusion transformer. Given a source video, an editing instruction, and an optional reference image, the model produces temporally consistent edited videos with controllable appearance and structure.
         </p>
 
         <ul class="contribution-list">
-            <li><b>Unified Multi-Modal Conditioning:</b> We design a shared encoder that processes text instructions and reference images through a cross-attention mechanism, enabling seamless switching between and combination of conditioning modalities.</li>
-            <li><b>Spatiotemporal Mask Control:</b> A unified mask-based control mechanism allows spatial precision (editing specific regions) and temporal control (editing specific frames), supporting both local and global edits across all three paradigms.</li>
-            <li><b>Scalable Data Pipeline:</b> We construct a large-scale training dataset covering all three editing paradigms through a combination of synthetic generation, automated captioning, and reference-instruction pair mining.</li>
+            <li><b>Semantic Guidance:</b> The MLLM extracts instruction and reference features to guide what should be edited.</li>
+            <li><b>Structure Preservation:</b> Source-video latents are injected into the generation process to keep motion and scene layout stable.</li>
+            <li><b>Reference Fidelity:</b> Reference visual tokens help transfer desired style and appearance details.</li>
         </ul>
     </div>
 
-    <div class="container blog extra-large gray">
+    <div class="container blog extra-large">
         <div class="method-figure">
             <img src="images/model.png" alt="KiwiEdit architecture diagram">
         </div>
         <p class="caption">
-            <b>Overview of KiwiEdit.</b> Given an input video, KiwiEdit processes text instructions through an instruction encoder and reference images through a visual encoder. Both conditioning signals are fused via cross-attention and fed into the video diffusion backbone along with spatiotemporal mask control signals. The model supports three editing modes: instruction-only, reference-only, and joint instruction+reference editing.
+            <b>Architecture overview.</b> The MLLM provides semantic guidance (instruction and reference context tokens), while the DiT receives both semantic context and direct structural controls from source/reference latents for controllable video editing.
         </p>
     </div>
 
     <div class="container blog main">
-        <h2>Unified Conditioning</h2>
+        <h2>Training Curriculum</h2>
         <p class="text">
-            Rather than training separate models for instruction-guided and reference-guided editing, KiwiEdit uses a shared cross-attention conditioning mechanism. Text instructions are encoded via a language model and projected into the conditioning space, while reference images are encoded via a visual encoder (e.g., CLIP or DINOv2) and projected into the same space. During joint editing, both signals are concatenated along the sequence dimension before cross-attention, allowing the model to attend to both modalities simultaneously.
+            We train KiwiEdit with a simple three-stage curriculum: alignment, instruction tuning, and reference-guided fine-tuning. This progressive strategy improves stability and enables strong performance across instruction-only, reference-only, and joint editing settings.
         </p>
 
-        <h2>Training Strategy</h2>
-        <p class="text">
-            We train KiwiEdit in three stages: (1) instruction-only editing on large-scale synthetic instruction pairs, (2) reference-only editing on style and appearance transfer data, and (3) joint fine-tuning on curated reference+instruction pairs with mixed-modality dropout. The mixed-modality dropout randomly drops one conditioning signal during training, ensuring the model learns to gracefully handle all three paradigms.
-        </p>
+        <ul class="contribution-list">
+            <li><b>Stage 1:</b> Align multimodal representations between the MLLM and the diffusion backbone.</li>
+            <li><b>Stage 2:</b> Scale instruction-guided editing with large image/video data.</li>
+            <li><b>Stage 3:</b> Add reference-guided training for precise visual control (up to 81 video frames).</li>
+        </ul>
     </div>
 
+    <!-- ======================== Dataset ======================== -->
+    <div class="container blog main">
+        <h1>Training Dataset</h1>
+        <p class="text">
+            To support reference-guided video editing at scale, we build a fully automated data pipeline that converts instruction triplets into reference-guided quadruplets. Starting from 3.7M raw samples (Ditto-1M, ReCo, and OpenVE-3M), we apply four stages: (1) quality filtering with EditScore, (2) instruction-aware grounding and segmentation, (3) reference image synthesis for local/background edits, and (4) semantic verification plus global de-duplication. This process yields 477K high-quality training quadruplets with balanced task coverage. All datasets are released for research use to facilitate future research in this area.
+        </p>
+    </div>
 
     <!-- ======================== Citation ======================== -->
     <div class="container blog main">
@@ -913,11 +954,11 @@
         <p class="text">
             If you find KiwiEdit useful for your research, please cite our paper:
         </p>
-<pre><code class="plaintext">@article{kiwiedit2025,
-    title={KiwiEdit: Unified Instruction and Reference-Guided Video Editing},
+<pre><code class="plaintext">@article{kiwiedit2026,
+    title={Kiwi-Edit: Versatile Video Editing via Instruction and Reference Guidance},
     author={Author A and Author B and Author C and Author D and Author E},
-    journal={arXiv preprint arXiv:2025.XXXXX},
-    year={2025}
+    journal={arXiv preprint arXiv:2026.XXXXX},
+    year={2026}
 }</code></pre>
     </div>
 
